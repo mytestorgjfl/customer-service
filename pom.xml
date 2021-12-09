@@ -9,9 +9,9 @@
 		<version>2.5.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.jubl.food</groupId>
+	<groupId>com.jubl.food.demo</groupId>
 	<artifactId>customer-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>customer-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -56,6 +56,21 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>
@@ -122,7 +137,41 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-scm-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.plexus</groupId>
+						<artifactId>plexus-utils</artifactId>
+						<version>3.3.0</version>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.11.2</version>
+					</dependency>
+				</dependencies>
+				<version>1.0</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<tagBase>git@github.com:mytestorgjfl/customer-service.git/releases</tagBase>
+				</configuration>
+				<version>2.5.3</version>
+			</plugin>
+
 		</plugins>
 	</build>
+
+	<scm>
+		<url>scm:git:git@github.com:mytestorgjfl/customer-service.git</url>
+		<developerConnection>scm:git:git@github.com:mytestorgjfl/customer-service.git</developerConnection>
+		<tag>customer-service-1.0</tag>
+	</scm>
+
 
 </project>
